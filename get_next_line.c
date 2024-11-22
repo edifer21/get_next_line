@@ -42,5 +42,6 @@ int	main(void)
 	return (1);
 	leer = read("texto.txt", str,19);
 	str[leer] = '\0';
-	close (texto);
+	close (texto)
+    ,
 }
