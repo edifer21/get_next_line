@@ -14,9 +14,11 @@
 # define BUFFER_SIZE 42
 #endif
 //#include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
-#include <unistd.h>
+#include <unistd.h> // Para read() y close()
+#include <fcntl.h>  // Para open()
+#include <stdio.h>  // Para printf()
+#include <stdlib.h> 
+#include <string.h>
 /*
 char	*get_next_line(int fd)
 {
