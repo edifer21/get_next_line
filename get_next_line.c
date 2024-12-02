@@ -19,18 +19,11 @@
 #include <stdio.h>  // Para printf()
 #include <stdlib.h> 
 #include <string.h>
-/*
-char	*get_next_line(int fd)
-{
-	char str[BUFFER_SIZE + 1]; 
-	int leer;
-	if  (fd = -1)
-		int fd = open ("texto", O_RDONLY);
-	return (1);
-	leer = read(texto, str,10);
-	close (texto);
-}
-*/
+ 
+ char search (int fd)
+ {
+	
+ }
 
 char	*get_next_line(int fd)
 {
@@ -38,6 +31,7 @@ char	*get_next_line(int fd)
 	ssize_t leerchar = read(fd,buffer,BUFFER_SIZE);
     if (leerchar <= 0) // Error o fin de archivo
         return NULL;
+
     buffer[leerchar] = '\0'; // Agregar terminador nulo
     return strdup(buffer);
     //read();
