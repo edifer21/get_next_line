@@ -32,7 +32,8 @@ char *search(char *buffer)
    // Buscar el primer salto de línea en el buffer
     char *newline_pos = ft_strchr(buffer, '\n');
     
-    if (newline_pos != NULL) {
+    if (newline_pos != NULL)
+     {
         // Si encuentras el salto de línea, colocar el terminador nulo
         *newline_pos = '\0';
     }
