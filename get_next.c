@@ -3,7 +3,35 @@
 #include <stdio.h>  // Para printf()
 #include <stdlib.h> 
 #include <string.h> 
-#define BUFFER_SIZE 5
+#define BUFFER_SIZE 1
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	unsigned int	i;
+	char			*ptd;
+	char			*pts;
+
+	if (!dest && !src)
+		return (NULL);
+	i = n;
+	ptd = (char *) dest;
+	pts = (char *) src;
+	if (ptd > pts)
+	{
+		i = n;
+		while (i-- > 0)
+			ptd[i] = pts[i];
+	}
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			ptd[i] = pts[i];
+			i++;
+		}
+	}
+	return (dest);
+}
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -31,18 +59,27 @@ char *search(char *buffer)
 {
    // Buscar el primer salto de línea en el buffer
     char *newline_pos = ft_strchr(buffer, '\n');
-    
+        size_t n = 4;
+    char *linesmall = malloc (n+1);
+ft_memmove(linesmall,buffer,n);
+    linesmall[n] = '\0';
+
+    //printf ("%s\n",newline_pos);
+    /*
     if (newline_pos != NULL)
      {
         // Si encuentras el salto de línea, colocar el terminador nulo
         *newline_pos = '\0';
     }
-
-    return buffer;  // Devuelve el buffer hasta el salto de línea
+    linesmall = 
+    */
+    return linesmall;  // Devuelve el buffer hasta el salto de línea
 }
 char *get_next_line(int fd)
 {
+    static char *save;
     char buffer[BUFFER_SIZE + 1];
+     char *newline_pos;
     char *str;
     ssize_t leerchar;
 
@@ -52,6 +89,7 @@ char *get_next_line(int fd)
         return NULL;
     buffer[leerchar] = '\0'; // Agregar terminador nulo
     str = search(buffer);
+    //printf ("%s\n",str);
     return strdup(str); // Devuelve la línea leída
 }
 

@@ -1,3 +1,4 @@
-hola muundo como estas ahora mismo en este  dia  a esta hora eneste mes y ano
-me
-llamo patricio
+linea de texto 1 flinea 23
+linea de texto 2
+linea de texto 3
+linea de texto 4
