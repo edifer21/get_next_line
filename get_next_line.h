@@ -11,21 +11,16 @@
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-# define GET_NEXT_KINE_H
+#define GET_NEXT_LINE_H
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <stdint.h>
-# include "get_next_line.h"
+#include <stdlib.h>
 
-int		ft_printf(char const *word, ...);
-int		ft_putchar(char c);
-int		ft_putstr(char *str);
-int		ft_putptr(void *ptr);
-int		ft_putnbr(int n);
-int		ft_putnbr_u(unsigned int n);
-int		ft_putnbr_hex(unsigned long n);
-int		ft_putnbr_hex_m(unsigned long n);
+char *get_next_line(int fd);
+char *ft_strjoin(const char *s1, const char *s2);
+char *ft_strdup(const char *s);
+char *ft_strchr(const char *s, int c);
+size_t ft_strlen(const char *s);
+char *ft_strndup(const char *s, size_t n);
+char *extract_line(char **save);
 
 #endif

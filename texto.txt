@@ -1,4 +1,6 @@
-linea de texto 1 flinea 23
+pala
+linea de texto 1 
+pala
 linea de texto 2
 linea de texto 3
 linea de texto 4
