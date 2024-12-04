@@ -1,13 +1,22 @@
-int main(void) {
-    int fd = open("texto.txt", O_RDONLY);
-    if (fd == -1) { perror("Error al abrir el archivo"); return 1; }
+#include <stdio.h>
+#include <stdlib.h>
+#include "get_next_line.h"
 
-    char *line;
-    while ((line = get_next_line(fd)) != NULL) {
-        printf("Leida linea: %s", line);
-        free(line);
+int main(void)
+{
+    FILE *file = fopen("texto.txt", "r");
+    if (!file)
+    {
+        perror("Error opening file");
+        return 1;
     }
 
-    close(fd);
+    char *line;
+    while ((line = get_next_line(fileno(file))) != NULL)
+    {
+        printf("%s", line); // Agregamos un salto de línea para asegurar el formato
+        free(line);
+    }
+    fclose(file);
     return 0;
 }
