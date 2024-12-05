@@ -17,11 +17,6 @@
 #include <string.h>
 #include "get_next_line.h"
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "get_next_line.h"
-
 char *initialize_save(void)
 {
     char *save = malloc(1);
@@ -32,7 +27,6 @@ char *initialize_save(void)
     save[0] = '\0';
     return save;
 }
-
 int handle_read_error(ssize_t bytes_read, char **save) 
 {
     if (bytes_read < 0)
@@ -46,9 +40,11 @@ int handle_read_error(ssize_t bytes_read, char **save)
 
 char *join_and_free(char *save, char *buffer) 
 {
-    char *tmp = ft_strjoin(save, buffer);
+    char *tmp;
+    
+    tmp = ft_strjoin(save, buffer);
     if (!tmp) 
-{
+    {
         free(save);
         return NULL;
     }
@@ -58,14 +54,16 @@ char *join_and_free(char *save, char *buffer)
 
 char *finalize_save(char **save) 
 {
-    char *line = NULL;
-
+    char *line;
+    
+    line  = NULL;
     if (*save && **save != '\0')
         line = ft_strdup(*save);
     free(*save);
     *save = NULL;
     return line;
 }
+
 char *get_next_line(int fd) 
 {
     static char *save = NULL;
